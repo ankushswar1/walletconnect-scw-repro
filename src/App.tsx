@@ -14,9 +14,9 @@ const projectId = import.meta.env.VITE_PROJECT_ID as string;
 // 1. Create a new EthereumProvider instance
 const provider = await EthereumProvider.init({
   projectId,
-  chains: [],
+  // chains: [],
   optionalChains: optionalChainIds,
-  methods: ["personal_sign", "eth_sendTransaction"],
+  // methods: ["personal_sign", "eth_sendTransaction"],
   showQrModal: false,
   qrModalOptions: {
     themeMode: "light",
@@ -33,6 +33,7 @@ const modal = new WalletConnectModal({
 
 
 provider.on("display_uri", (uri) => {
+  console.log(uri);
   modal.openModal({
     uri: uri
   })
@@ -45,7 +46,9 @@ const ethersWeb3Provider = new ethers.providers.Web3Provider(provider);
 function App() {
   // 3. Handle Connect
   const connect = async () => {
+    console.log('connect called');
     const accounts = await provider.enable();
+    console.log('here');
     console.log('Enabled provider with accounts', {accounts});
     const chainId = await provider.request({method: 'eth_chainId'});
     console.log('Provider responded to eth_chainId with', {chainId});
