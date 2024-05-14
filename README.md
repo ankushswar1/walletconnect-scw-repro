@@ -1,22 +1,7 @@
-# Vite + React
+# Steps to reproduce
 
-This is a [Vite](https://vitejs.dev) project together with React.
+1. Copy `.env.example` to `.env` and add a WC project ID
+2. Install deps (`yarn add`) and run (`yarn dev`) and open the app at `http://localhost:5173`
+3. Click the connect button, copy the URI, paste it in a non-mainnet Safe (or Party) for connection
+4. Open the developer console to see the logs. You'll see the correct connected address logged but an incorrect `chainId` (it's always 1 since that's the first entry in `optionalChains`)
 
-[![Edit in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/codesandbox/codesandbox-template-vite-react/main)
-
-[Configuration](https://codesandbox.io/docs/projects/learn/setting-up/tasks) has been added to optimize it for [CodeSandbox](https://codesandbox.io/dashboard).
-
-## Usage
-
-1. Go to [WalletConnect Cloud](https://cloud.walletconnect.com) and create a new project.
-2. Copy your `Project ID`
-3. Rename `.env.example` to `.env` and paste your `Project ID` as the value for `VITE_PROJECT_ID`
-4. Run `yarn` to install dependencies
-5. Run `yarn dev` to start the development server
-
-## Resources
-
-- [CodeSandbox — Docs](https://codesandbox.io/docs/projects)
-- [CodeSandbox — Discord](https://discord.gg/Ggarp3pX5H)
-- [Vite — GitHub](https://github.com/vitejs/vite)
-- [Vite — Docs](https://vitejs.dev/guide/)
