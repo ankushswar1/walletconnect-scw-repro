@@ -39,6 +39,14 @@ provider.on("display_uri", (uri) => {
   })
 });
 
+provider.on("accountsChanged", (args) => {
+  console.log('accountsChanged fired with', args);
+})
+
+provider.on("chainChanged", (args) => {
+  console.log('chainChanged fired with', args);
+})
+
 
 // 2. Pass the provider to ethers.js
 const ethersWeb3Provider = new ethers.providers.Web3Provider(provider);
@@ -46,9 +54,8 @@ const ethersWeb3Provider = new ethers.providers.Web3Provider(provider);
 function App() {
   // 3. Handle Connect
   const connect = async () => {
-    console.log('connect called');
+    console.log('Connect button clicked, enabling provider');
     const accounts = await provider.enable();
-    console.log('here');
     console.log('Enabled provider with accounts', {accounts});
     const chainId = await provider.request({method: 'eth_chainId'});
     console.log('Provider responded to eth_chainId with', {chainId});
